@@ -171,10 +171,10 @@ export default {
 					//const timestamp = Math.floor(now / 1000);
 					const today = new Date(now);
 					today.setHours(0, 0, 0, 0);
-					const UD = Math.floor(((now - today.getTime()) / 86400000) * 24 * 1099511627776 / 2);
+					const UD = Math.floor(((now - today.getTime()) / 86400000) * 0.001 * 1099511627776 / 2);
 					let pagesSum = UD;
 					let workersSum = UD;
-					let total = 24 * 1099511627776;
+					let total = 7894 * 1099511627776;
 
 					if (userAgent && userAgent.includes('mozilla')) {
 						return new Response(维列斯Config, {
@@ -1296,17 +1296,17 @@ async function 生成配置信息(userID, hostName, sub, UA, RproxyIP, _url, fak
 
 				return randomIP.join('.');
 			}
-			addresses = addresses.concat('127.0.0.1:1234#CFnat');
+			addresses = addresses.concat('127.0.0.1:1234#MOnat');
 			let counter = 1;
 			if (hostName.includes("worker") || hostName.includes("notls")) {
 				const randomPorts = httpPorts.concat('80');
 				addressesnotls = addressesnotls.concat(
-					cfips.map(cidr => generateRandomIPFromCIDR(cidr) + ':' + randomPorts[Math.floor(Math.random() * randomPorts.length)] + '#CF随机节点' + String(counter++).padStart(2, '0'))
+					cfips.map(cidr => generateRandomIPFromCIDR(cidr) + ':' + randomPorts[Math.floor(Math.random() * randomPorts.length)] + '#MO随机节点' + String(counter++).padStart(2, '0'))
 				);
 			} else {
 				const randomPorts = httpsPorts.concat('443');
 				addresses = addresses.concat(
-					cfips.map(cidr => generateRandomIPFromCIDR(cidr) + ':' + randomPorts[Math.floor(Math.random() * randomPorts.length)] + '#CF随机节点' + String(counter++).padStart(2, '0'))
+					cfips.map(cidr => generateRandomIPFromCIDR(cidr) + ':' + randomPorts[Math.floor(Math.random() * randomPorts.length)] + '#MO随机节点' + String(counter++).padStart(2, '0'))
 				);
 			}
 		}
