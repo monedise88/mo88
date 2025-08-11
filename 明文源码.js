@@ -174,7 +174,7 @@ export default {
 					const UD = Math.floor(((now - today.getTime()) / 86400000) * 0.001 * 1099511627776 / 2);
 					let pagesSum = UD;
 					let workersSum = UD;
-					let total = 7894 * 1099511627776;
+					let total = 999 * 1099511627776;
 
 					if (userAgent && userAgent.includes('mozilla')) {
 						return new Response(维列斯Config, {
